@@ -6,7 +6,7 @@ import PageLogo from './PageLogo.vue'
 <template>
   <div class="flex items-center justify-between">
     <PageLogo />
-    <a href="https://github.com/cicada-lang/lambda" target="_blank">
+    <a href="https://github.com/cicada-lang/mugda" target="_blank">
       <IconGithub class="h-5 w-5" />
     </a>
   </div>

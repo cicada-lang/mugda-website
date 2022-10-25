@@ -1,50 +1,40 @@
-import {
-  Parser,
-  ParsingError,
-  BlockResource,
-  Mod,
-  Loader,
-} from '@cicada-lang/lambda'
-
-const loader = new Loader()
+import { Loader, Mod, Errors } from '@cicada-lang/mugda'
 
 export class PlaygroundState {
-  mod = new Mod(new URL(window.location.href), {
-    loader,
-    blocks: new BlockResource(),
+  loader = new Loader({})
+
+  mod = new Mod({
+    url: new URL(window.location.href),
+    loader: this.loader,
   })
 
   text = ''
+
   error?: {
-    kind: string
     message: string
   }
 
-  get outputs(): Array<undefined | string> {
-    return this.mod.blocks.outputs
+  get outputs(): Array<string> {
+    return Array.from(this.mod.outputs.values())
   }
 
   async refresh(url: URL): Promise<void> {
     try {
       delete this.error
-      this.mod = await loader.loadAndExecute(url, { code: this.text })
+      if (!this.text) return
+      this.mod = await this.loader.load(url, { text: this.text })
     } catch (error) {
       this.catchError(error)
     }
   }
 
   catchError(error: unknown): void {
-    if (!(error instanceof Error)) throw error
-    if (error instanceof ParsingError) {
-      this.error = {
-        kind: 'ParsingError',
-        message: error.message + '\n' + error.span.report(this.text),
-      }
+    if (!(error instanceof Error)) {
+      this.error = { message: JSON.stringify(error) }
+    } else if (error instanceof Errors.ParsingError) {
+      this.error = { message: error.report(this.text) }
     } else {
-      this.error = {
-        kind: error.name,
-        message: error.message,
-      }
+      this.error = { message: error.message }
     }
   }
 }

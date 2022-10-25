@@ -11,7 +11,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@cicada-lang/lambda": "^0.0.45",
+    "@cicada-lang/mugda": "^0.1.15",
     "floating-vue": "^2.0.0-beta.20",
     "js-base64": "^3.7.2",
     "jsdom": "^20.0.1",
