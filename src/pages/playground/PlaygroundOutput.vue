@@ -21,7 +21,7 @@ defineProps<{
     >
       <div class="p-3 font-mono text-sm text-theme-600 md:text-base">
         <div v-for="(output, index) in state.outputs" :key="index">
-          <div v-if="output" class="whitespace-pre-line pb-4">{{ output }}</div>
+          <div v-if="output" class="whitespace-pre-line pb-1">{{ output }}</div>
         </div>
       </div>
     </div>
