@@ -1,6 +1,6 @@
 # Mugda Website
 
-[ [VISIT](https://lambda.cicada-lang.org)
+[ [VISIT](https://mugda.cicada-lang.org)
 | [REPO](https://github.com/cicada-lang/mugda) ]
 
 ## Contributions
