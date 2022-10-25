@@ -1,4 +1,4 @@
-# Lambda Website
+# Mugda Website
 
 [ [VISIT](https://lambda.cicada-lang.org)
 | [REPO](https://github.com/cicada-lang/mugda) ]
