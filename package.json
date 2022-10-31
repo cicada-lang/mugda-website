@@ -11,10 +11,10 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@cicada-lang/mugda": "^0.1.17",
+    "@cicada-lang/mugda": "^0.1.18",
     "floating-vue": "^2.0.0-beta.20",
     "js-base64": "^3.7.2",
-    "jsdom": "^20.0.1",
+    "jsdom": "^20.0.2",
     "lodash": "^4.17.21",
     "vue-meta": "^2.4.0"
   },
